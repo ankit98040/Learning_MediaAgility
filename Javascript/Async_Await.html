@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		//async function returns a promise which returns only two things, then and reject
+		let test = async () => {
+			return "hello"
+		}
+
+		test().then((result) => {
+			console.log(result)
+		})
+
+		// async function clone(){
+		// 	console.log("d1")
+		// 	await console.log("d2")
+		// 	console.log("d3")
+		// }
+		// clone()
+		// console.log("d4")
+		// console.log("d5")
+
+		//await & fetch
+		async function stud(){
+			try{
+				// console.log("1: Message 1")
+			// const response = await fetch("/student-data.json")
+			// console.log("3: Message 3")
+			// const students = await response.json()
+
+			// return students
+
+			return (await fetch("./student_data.json")).json()
+		} catch(err){
+			console.log(err)
+		}
+		}
+
+		// let a = stud()
+		// console.log("4: message 4")
+		// console.log(a)
+
+		stud().then((res) => {
+			console.log(res)
+		}).catch((err) => {
+			console.log(err)
+		})
+	</script>
+</head>
+<body>
+
+</body>
+</html>

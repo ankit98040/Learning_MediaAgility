@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<script type="text/javascript">
+		//function with multiple arguments
+		function sum(name,course, ...args){
+			console.log(arguments);
+			document.write(`Hello ${name} of ${course}, you scored `)
+
+			let sum = 0;
+			for (let i in args){
+				sum += args[i]
+			}
+			document.write(`${sum} <br>`)
+		}
+
+		sum("Ankit", "B.tech" ,90,70,40)
+		sum("Purba", "B.tech" ,50,80,90)
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

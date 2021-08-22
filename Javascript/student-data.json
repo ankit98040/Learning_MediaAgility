@@ -1,0 +1,17 @@
+{
+    {
+		"name": "Ankit",
+		"Age": "22",
+		"City": "Kolkata"
+	},
+	{
+		"name": "Purba",
+		"Age": "21",
+		"City": "MGM"
+	},
+	{
+		"name": "Dips",
+		"Age": "23",
+		"City": "khardah"
+	}
+}
