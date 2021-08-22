@@ -1,0 +1,24 @@
+git clone https://github.com/linuxacademy/content-gc-essentials
+cd content-gc-essentials/gke-lab-01
+docker build -t la-container-image .
+gcloud auth configure-docker
+docker tag la-container-image gcr.io/playground-s-11-378ecd4c/la-container-image:v1
+docker push gcr.io/playground-s-11-378ecd4c/la-container-image:v1
+gcloud config set compute/zone us-central1-a
+gcloud container clusters create la-gke-1 --num-nodes=4
+gcloud container clusters get-credentials la-gke-1
+kubectl create deployment la-greetings --image=gcr.io/playground-s-11-378ecd4c/la-container-image:v1
+kubectl expose deployment la-greetings --type=LoadBalancer --name=la-greetings-service --port=80 --target-port=80
+kubectl get services la-greetings-service
+docker build -t la-container-image .
+gcloud auth configure-docker
+docker tag la-container-image gcr.io/playground-s-11-378ecd4c/la-container-image:v1
+docker push gcr.io/playground-s-11-378ecd4c/la-container-image:v1
+
+
+to configure kubectl
+gcloud container clusters get-credentials my-cluster-1 --zone=us-central1-c
+
+*to create a deployment using cli
+kubectl create deploy nginx --image nginx
+kubectl expose deploy nginx --port=80 --type=LoadBalancer
