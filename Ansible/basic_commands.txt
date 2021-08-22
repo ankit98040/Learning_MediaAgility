@@ -9,3 +9,13 @@ inventory = ./hosts-dev
 remote_user = ec2-user
 private_key_file = ~/.ssh/key.pem
 host_key_checking = False
+
+rc = 0 -> return code 0 means code ran successfull
+rc = 1 -> failure
+
+
+
+kubernetes -> nodes (computer) -> pods -> containers
+
+task -> 
+
