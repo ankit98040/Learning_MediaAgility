@@ -1,0 +1,20 @@
+- hosts: Client
+  tasks: 
+  - name: "Installing httpd"
+    package:
+     name: "httpd"
+  - name: "copying the content to index.html file"
+    copy: 
+     dest: "/var/www/html/index.html"
+     content: "Hi hello "
+  - copy:
+     dest: "/var/www/html/index.html"
+     src: ".index.html"
+
+
+# ansible -> ad hoc , declarative
+#ansible-playbook filename.yaml
+
+#ansible-playbook ,  ansible roles
+
+
