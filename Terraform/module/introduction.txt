@@ -1,0 +1,14 @@
+Simply a module in Terraform is just another folder or collection of Terraform code
+files.
+
+And you reference the outputs of that code into other parts of your Terraform
+project.
+
+It basically groups together multiple resources that are used together in your
+project.
+
+The main purpose of the modules is to make code reusable elsewhere so that you
+don't have to keep reinventing the wheel.
+
+The directory which holds your main Terraform code is called the root module,
+always.
