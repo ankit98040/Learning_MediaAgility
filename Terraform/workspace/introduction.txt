@@ -1,0 +1,5 @@
+workspaces is like environment where you can have different environments for different tasks
+
+-> terraform workspace list (shows available workspaces)
+-> terraform workspace new test (creates a new workspace with name test)
+-> terraform workspace select default (changes the workspace back to default)
