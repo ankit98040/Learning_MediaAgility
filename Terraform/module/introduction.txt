@@ -12,3 +12,9 @@ don't have to keep reinventing the wheel.
 
 The directory which holds your main Terraform code is called the root module,
 always.
+
+other allowed parameters
+1. depends_on
+2. count
+3. for_each
+4. providers
