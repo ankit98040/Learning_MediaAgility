@@ -6,11 +6,11 @@
 
 resource "null_resource" "provisioner-1" {
 	provisioner "local-exec" {
-		command = "echo '0' > status.txt "
+		command = "echo 'created' > status.txt "
 	}
 
 	provisioner "local-exec" {
 		when = destroy
-		command = "echo '0' > status.txt "
+		command = "echo 'destroyed' > status.txt "
 	}
 }
