@@ -19,3 +19,9 @@ kubernetes -> nodes (computer) -> pods -> containers
 
 task -> 
 
+
+
+/etc/ansible/ansible.cfg ->
+[defaults]
+inventory = /root/ip.txt
+host_key_checking=False
