@@ -1,7 +1,8 @@
 terraform {
 	backend "s3" {
+		profile = "default"
 		region = "us-east-1"
-		key = "name_of_state_file" #name of the state file
+		key = "terraform.tfstate" #name of the state file
 		bucket = "bucket_name"
 	}
 }
