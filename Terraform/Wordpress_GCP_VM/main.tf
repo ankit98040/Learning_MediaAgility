@@ -96,7 +96,7 @@ resource "null_resource" "wordpress_install_two" {
             "sudo wget https://wordpress.org/latest.zip",
             "sudo apt install unzip -y",
             "sudo unzip latest.zip",
-            "sudo cd wordpress",
+            "cd wordpress",
             "sudo cp -r * /var/www/html",
             "sudo rm -rf index.html",
             "sudo apt install php-mysql php-cgi php-cli php-gd -y",
