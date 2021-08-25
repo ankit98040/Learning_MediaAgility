@@ -97,15 +97,23 @@ resource "null_resource" "wordpress_install_two" {
       host = google_compute_instance.vm_wordpress.network_interface.0.access_config.0.nat_ip
     }
 
-    provisioner "file" {
-		source = "wp.sh"
-		destination = "wp.sh"
-	}
-
     provisioner "remote-exec" {
         inline = [
-            "sudo chmod +x wp.sh",
-            "sudo ./wp.sh"
+            "sudo apt install apache2 -y",
+            "sudo apt install mariadb-server mariadb-client -y",
+            "sudo systemctl start mariadb",
+            "sudo systemctl start apache2",
+            "sudo apt install php -y",
+            "sudo apt install wget -y",
+            "sudo wget https://wordpress.org/latest.zip",
+            "sudo apt install unzip -y",
+            "sudo unzip latest.zip",
+            "sudo cd wordpress",
+            "sudo cp -r * /var/www/html",
+            "sudo rm -rf index.html",
+            "sudo apt install php-mysql php-cgi php-cli php-gd -y",
+            "sudo systemctl restart apache2",
+            "sudo chown -R www-data:www-data /var/www/"
 
         ]
     }
