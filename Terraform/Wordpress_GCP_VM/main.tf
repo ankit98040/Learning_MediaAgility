@@ -1,3 +1,6 @@
+#generate key using 
+#ssh-keygen -t rsa -b 4096 -C projectuser
+
 resource "google_compute_project_metadata" "my_ssh_key" {
   metadata = {
     ssh-keys = <<EOF
@@ -87,6 +90,7 @@ resource "null_resource" "wordpress_install_two" {
 
     provisioner "remote-exec" {
         inline = [
+            "sudo apt update"
             "sudo apt install apache2 -y",
             "sudo apt install mariadb-server mariadb-client -y",
             "sudo systemctl start mariadb",
