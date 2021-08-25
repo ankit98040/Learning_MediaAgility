@@ -14,6 +14,7 @@ resource "google_compute_instance" "default" {
   machine_type = "f1-micro"
   zone         = "us-central1-a"
 
+
   tags = ["foo", "bar"]
 
   boot_disk {
