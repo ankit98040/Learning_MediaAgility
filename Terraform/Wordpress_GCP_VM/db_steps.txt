@@ -1,0 +1,9 @@
+Steps to configure db
+
+mysql_secure_installation -> enter password and all yes
+
+mysql -u root -p
+
+create database wordpress;
+create user "wordpress"@"%" identified by "password";
+grant all privileges on wordpress.* to "wordpress"@"%";
