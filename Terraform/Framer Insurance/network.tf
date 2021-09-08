@@ -1,3 +1,5 @@
+#creating vpc with custom
+
 resource "google_compute_network" "testterra" {
   project                 = "poised-vial-319809"
   name                    = "testterra"
@@ -7,24 +9,20 @@ resource "google_compute_network" "testterra" {
   
 }
 
+#adding subnets
 resource "google_compute_subnetwork" "sub1" {
   name          = "test-sub"
   ip_cidr_range = "10.2.0.0/26"
   region        = "us-central1"
-  network       = google_compute_network.testterra.id
+  network       = google_compute_network.testterra.id     #to change the vpc id
   secondary_ip_range {
     range_name    = "tf-test-secondary-range-update1"
     ip_cidr_range = "192.168.10.0/24"
   }
 }
 
-resource "google_compute_network" "custom-test" {
-  name                    = "test-network"
-  auto_create_subnetworks = false
-}
 
-
-#adding firewall rules
+#adding firewall rules with the folloing ports allowing from range all
 resource "google_compute_firewall" "ruledef" {
   name    = "testattack"
   network = google_compute_network.testterra.id
